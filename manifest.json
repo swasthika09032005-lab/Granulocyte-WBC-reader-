@@ -1,0 +1,11 @@
+{
+  "name": "Granulocyte WBC Image Reader",
+  "short_name": "WBC Reader",
+  "description": "Educational granulocyte WBC morphology reader for MLT students.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f3f8f8",
+  "theme_color": "#0f766e",
+  "orientation": "portrait-primary",
+  "icons": []
+}

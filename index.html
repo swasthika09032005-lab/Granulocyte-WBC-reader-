@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<meta name="description" content="Educational granulocyte WBC morphology reader for MLT students.">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<title>Granulocyte WBC Reader</title>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">🔬</span><div><h1>Granulocyte WBC Reader</h1><p>MLT morphology learning tool</p></div></div>
+  <span class="pill">Educational only</span>
+</header>
+<nav class="nav" aria-label="Sections">
+<button class="tab active" data-go="reader">Reader</button>
+<button class="tab" data-go="comparator">Comparator</button>
+<button class="tab" data-go="learn">Learn</button>
+<button class="tab" data-go="practice">Practice</button>
+<button class="tab" data-go="quiz">Quiz</button>
+<button class="tab" data-go="history">History</button>
+</nav>
+<main>
+<section id="reader" class="section active">
+  <div class="hero card">
+    <div><span class="eyebrow">HEMATOLOGY • GRANULOCYTES</span><h2>Upload a WBC image and compare its morphology</h2>
+    <p>Educational similarity analysis for <b>Neutrophil, Eosinophil and Basophil</b>.</p></div>
+    <div class="mini-tags"><span>Neutrophil</span><span>Eosinophil</span><span>Basophil</span></div>
+  </div>
+  <div class="two-col">
+    <article class="card">
+      <h3>1. Upload WBC microscopy image</h3>
+      <label class="drop" id="drop" for="file"><input id="file" type="file" accept="image/*" capture="environment">
+        <div class="camera">📷</div><b>Tap to upload or take photo</b><small>JPG • PNG • WEBP</small>
+      </label>
+      <div class="actions"><button class="btn primary" id="analyze" disabled>Analyze Image</button><button class="btn" id="clear">Clear</button></div>
+      <div class="examples"><small>Examples:</small><button class="chip" data-example="neutrophil">Neutrophil</button><button class="chip" data-example="eosinophil">Eosinophil</button><button class="chip" data-example="basophil">Basophil</button></div>
+      <div id="quality" class="notice hidden"></div>
+    </article>
+    <article class="card">
+      <h3>Uploaded image</h3><div class="stage" id="stage"><span id="empty">Your image will appear here.</span><img id="preview" class="hidden" alt="Uploaded WBC"></div>
+      <p id="meta" class="meta"></p>
+    </article>
+  </div>
+  <article class="card result">
+    <div class="result-head"><div><span class="eyebrow">EDUCATIONAL MORPHOLOGY MATCH</span><h2 id="name">No analysis yet</h2><p id="summary">Upload an image to begin.</p></div><div class="score" id="topScore">—</div></div>
+    <div class="score-list">
+      <div><label>Neutrophil <b id="nScore">—</b></label><i><em id="nBar"></em></i></div>
+      <div><label>Eosinophil <b id="eScore">—</b></label><i><em id="eBar"></em></i></div>
+      <div><label>Basophil <b id="bScore">—</b></label><i><em id="bBar"></em></i></div>
+    </div>
+    <div class="result-grid"><div><h3>Why this result?</h3><ul id="why"><li>Analysis results will appear here.</li></ul></div>
+    <div class="callout"><b id="confidence">Confidence: —</b><p id="confidenceText">This is a similarity estimate, not a clinical diagnosis.</p></div></div>
+  </article>
+  <article class="card warning"><b>⚠️ Educational safety notice</b><p>This tool does not diagnose disease. Stain, lighting, focus, camera quality and background can change image features. Final smear identification should be confirmed by a trained laboratory professional.</p></article>
+</section>
+
+<section id="comparator" class="section">
+ <div class="heading"><span class="eyebrow">REFERENCE COMPARATOR</span><h2>Granulocyte morphology</h2><p>Use the reference image and key features during practical training.</p></div>
+ <article class="card ref"><img src="assets/comparator.jpg" alt="Neutrophil Eosinophil Basophil reference comparator"></article>
+ <div class="cards3">
+  <article class="cell neut"><div class="art"><span></span></div><h3>Neutrophil</h3><ul><li>Usually 2–5 nuclear lobes</li><li>Fine, pale granules</li><li>Segmented nucleus is a key clue</li></ul></article>
+  <article class="cell eos"><div class="art"><span></span></div><h3>Eosinophil</h3><ul><li>Usually bilobed nucleus</li><li>Large orange-red granules</li><li>Coarse granules are conspicuous</li></ul></article>
+  <article class="cell baso"><div class="art"><span></span></div><h3>Basophil</h3><ul><li>Coarse blue-purple granules</li><li>Granules may obscure nucleus</li><li>Dense basophilic granule pattern</li></ul></article>
+ </div>
+</section>
+
+<section id="learn" class="section">
+ <div class="heading"><span class="eyebrow">LEARNING MODE</span><h2>Granulocyte quick guide</h2></div>
+ <div class="cards3"><article class="card"><h3>🔵 Neutrophil</h3><p><b>Nucleus:</b> segmented, commonly 2–5 lobes.</p><p><b>Granules:</b> fine and pale.</p><p><b>Teaching clue:</b> nuclear segmentation.</p></article>
+ <article class="card"><h3>🟠 Eosinophil</h3><p><b>Nucleus:</b> usually bilobed.</p><p><b>Granules:</b> large, coarse, orange-red.</p><p><b>Teaching clue:</b> prominent eosinophilic granules.</p></article>
+ <article class="card"><h3>🟣 Basophil</h3><p><b>Nucleus:</b> often difficult to see.</p><p><b>Granules:</b> coarse dark blue-purple.</p><p><b>Teaching clue:</b> dense basophilic granules.</p></article></div>
+ <article class="card table-wrap"><h3>Quick morphology table</h3><table><thead><tr><th>Feature</th><th>Neutrophil</th><th>Eosinophil</th><th>Basophil</th></tr></thead><tbody>
+ <tr><td>Nucleus</td><td>Multilobed</td><td>Usually bilobed</td><td>Irregular/bilobed, often obscured</td></tr>
+ <tr><td>Granules</td><td>Fine, pale</td><td>Coarse orange-red</td><td>Coarse blue-purple</td></tr>
+ <tr><td>Granule prominence</td><td>Low–moderate</td><td>High</td><td>Very high</td></tr></tbody></table></article>
+</section>
+
+<section id="practice" class="section">
+ <div class="heading"><span class="eyebrow">MANUAL PRACTICE</span><h2>Identify the uploaded cell</h2><p>Choose the morphology you think matches the uploaded image.</p></div>
+ <article class="card practice"><div id="practiceStage"><span id="practiceEmpty">Upload an image in Reader first.</span><img id="practiceImg" class="hidden" alt="Practice WBC"></div>
+ <div class="answers"><button data-answer="Neutrophil">Neutrophil</button><button data-answer="Eosinophil">Eosinophil</button><button data-answer="Basophil">Basophil</button></div><div id="feedback" class="notice hidden"></div></article>
+</section>
+
+<section id="quiz" class="section">
+ <div class="heading"><span class="eyebrow">MCQ PRACTICE</span><h2>Granulocyte quiz</h2></div>
+ <article class="card quiz"><div id="qProgress"></div><h3 id="question"></h3><div id="options"></div><button class="btn primary" id="next" disabled>Next Question</button><button class="btn hidden" id="restart">Restart Quiz</button><div id="qFeedback" class="notice hidden"></div></article>
+</section>
+
+<section id="history" class="section">
+ <div class="heading"><span class="eyebrow">LOCAL HISTORY</span><h2>Recent analyses</h2><p>Stored only in this browser.</p></div>
+ <article class="card table-wrap"><button class="btn danger" id="clearHistory">Clear History</button><table><thead><tr><th>Date/time</th><th>Image</th><th>Match</th><th>Similarity</th><th>Confidence</th></tr></thead><tbody id="historyBody"></tbody></table></article>
+</section>
+</main>
+<footer><b>Granulocyte WBC Reader</b> • Educational MLT tool • Not for clinical diagnosis</footer>
+<script src="app.js"></script>
+</body>
+</html>
